@@ -1,6 +1,11 @@
 /**
  * Monitor TreasureData Jobs, and notify it to Slack
- *
+ * @param {string} endpoint TreasureData API Endpoint (ex. api.treasuredata.com or api.ybi.idcfcloud.net or api.treasuredata.co.jp) 
+ * @param {string} apikey TreasureData API Key
+ * @param {number} duration_threshold Threshold (min) to define a long running query
+ * @param {number} queueing_threshold Threshold (jobs) to define stucked jobs
+ * @param {string} webhook Slack Webhook
+ * @param {string} channel Target channel which Slack notifies (ex. #alert)
  */
 function monitorTdJobs(endpoint, apikey, duration_threshold, queueing_threshold, webhook, channel) {  
   var jobs = getRunningQueuingJobs_(endpoint, apikey);
